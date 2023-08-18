@@ -37,7 +37,7 @@ def bruteforce(hash, salt):
             password_hash = hashlib.sha256(password.encode()).hexdigest()
             if password_hash == hash:
                 return password
-    elif len(hash) == 86 or len(hash) == 85:
+    elif len(hash) in {86, 85}:
         parts = hash.split("$")
         salt1 = parts[2]
         hash1 = parts[3]
